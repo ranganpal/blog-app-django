@@ -17,10 +17,10 @@
         {% for post in posts %}
         <div
             class="relative flex bg-clip-border rounded-xl bg-white text-gray-700 shadow-md w-full max-w-[48rem] flex-row">
+            {% if post.show %}
             <div
                 class="relative w-2/5 m-0 overflow-hidden text-gray-700 bg-white rounded-r-none bg-clip-border rounded-xl shrink-0">
-                <img src="/static/post/{{post.image}}"
-                    alt="card-image" class="object-cover w-full h-full" />
+                <img src="/static/post/{{post.image}}" alt="card-image" class="object-cover w-full h-full" />
             </div>
             <div class="p-6">
                 <h4
@@ -32,7 +32,7 @@
                     posted by {{post.user.name}}
                 </h6>
                 <p class="block mb-8 font-sans text-base antialiased font-normal leading-relaxed text-gray-700">
-                    {{post.content |truncatewords:60 | safe}}
+                    {{post.content |truncatewords:20 | safe}}
                 </p>
                 <a href="/read-post/{{post.id}}" class="inline-block"><button
                         class="flex items-center gap-2 px-6 py-3 font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-lg select-none disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none hover:bg-gray-900/10 active:bg-gray-900/20"
@@ -44,6 +44,17 @@
                             </path>
                         </svg></button></a>
             </div>
+            {% else %}
+            <div
+                class="relative w-2/5 m-0 overflow-hidden text-gray-700 bg-white rounded-r-none bg-clip-border rounded-xl shrink-0">
+                <img alt="no-image" class="object-cover w-full h-full" />
+            </div>
+            <div class="p-6">
+                <p class="block mb-8 font-sans text-base antialiased font-normal leading-relaxed text-gray-700">
+                    No Content
+                </p>
+            </div>
+            {% endif %}
         </div>
         {% endfor %}
     </div>

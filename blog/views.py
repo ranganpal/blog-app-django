@@ -146,6 +146,7 @@ def create_post(request, user_id):
             post.title = request.POST.get('title')
             post.content = request.POST.get('content')
             post.image = str(request.FILES.get('image'))
+            post.show = False
             post.user = user
             post.save()
             return redirect(f'/my-posts/{user_id}')
@@ -216,6 +217,7 @@ def update_post(request, post_id):
             post.title = request.POST.get('title')
             post.content = request.POST.get('content')
             post.image = str(request.FILES.get('image'))
+            post.show = False
             post.save()
             return redirect(f'/my-posts/{user.id}')
     elif user and not user.active:
