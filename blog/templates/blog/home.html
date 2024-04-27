@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
 
 <head>
     <meta charset="UTF-8">
@@ -18,7 +19,7 @@
             class="relative flex bg-clip-border rounded-xl bg-white text-gray-700 shadow-md w-full max-w-[48rem] flex-row">
             <div
                 class="relative w-2/5 m-0 overflow-hidden text-gray-700 bg-white rounded-r-none bg-clip-border rounded-xl shrink-0">
-                <img src="/media/post/{{post.image}}"
+                <img src="/static/post/{{post.image}}"
                     alt="card-image" class="object-cover w-full h-full" />
             </div>
             <div class="p-6">

@@ -224,9 +224,9 @@ def update_post(request, post_id):
         return redirect('/signup/')
 
 def handle_uploaded_file(file, filename):
-    if not os.path.exists('blog/media/post/'):
-        os.mkdir('blog/media/post/')
+    if not os.path.exists('blog/static/post/'):
+        os.mkdir('blog/static/post/')
 
-    with open('blog/media/post/' + filename, 'wb+') as destination:
+    with open('blog/static/post/' + filename, 'wb+') as destination:
         for chunk in file.chunks():
             destination.write(chunk)
